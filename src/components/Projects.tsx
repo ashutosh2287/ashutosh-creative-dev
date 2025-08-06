@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,7 +11,8 @@ const Projects = () => {
       id: 1,
       title: "EasyChat",
       subtitle: "Real-time Android Messenger App",
-      description: "A modern messaging application built with Kotlin and Firebase, featuring OTP authentication, real-time chat functionality, and a beautiful Jetpack Compose UI. The app provides seamless communication with instant message delivery and user-friendly interface.",
+      description:
+        "A modern messaging application built with Kotlin and Firebase, featuring OTP authentication, real-time chat functionality, and a beautiful Jetpack Compose UI. The app provides seamless communication with instant message delivery and user-friendly interface.",
       technologies: ["Kotlin", "Firebase", "Jetpack Compose", "Android Studio", "Real-time Database"],
       features: [
         "OTP-based Authentication",
@@ -31,19 +31,19 @@ const Projects = () => {
   const handleSaveProject = (projectData: any) => {
     if (projectData.id) {
       // Update existing project
-      setProjects(projects.map(p => p.id === projectData.id ? projectData : p));
+      setProjects(projects.map(p => (p.id === projectData.id ? projectData : p)));
     } else {
       // Add new project
       const newProject = {
         ...projectData,
-        id: projects.length + 1,
+        id: projects.length + 1
       };
       setProjects([...projects, newProject]);
     }
   };
 
   const handleRemoveProject = (projectId: number) => {
-    if (confirm('Are you sure you want to delete this project?')) {
+    if (confirm("Are you sure you want to delete this project?")) {
       setProjects(projects.filter(p => p.id !== projectId));
     }
   };
@@ -73,7 +73,7 @@ const Projects = () => {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {projects.map((project, index) => (
-            <Card 
+            <Card
               key={project.id}
               className={`overflow-hidden bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-card animate-scale-in`}
               style={{ animationDelay: `${index * 0.2}s` }}
@@ -98,7 +98,7 @@ const Projects = () => {
                   <h4 className="text-lg font-semibold mb-4 text-center">Technologies Used</h4>
                   <div className="flex flex-wrap gap-3 justify-center">
                     {project.technologies.map((tech) => (
-                      <Badge 
+                      <Badge
                         key={tech}
                         variant="secondary"
                         className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-300 px-4 py-2"
@@ -114,7 +114,7 @@ const Projects = () => {
                   <h4 className="text-lg font-semibold mb-6 text-center">Key Features</h4>
                   <div className="grid md:grid-cols-2 gap-4">
                     {project.features.map((feature, featureIndex) => (
-                      <div 
+                      <div
                         key={feature}
                         className={`flex items-center gap-3 p-3 bg-surface/50 rounded-lg animate-slide-in-left`}
                         style={{ animationDelay: `${featureIndex * 0.1}s` }}
@@ -129,36 +129,49 @@ const Projects = () => {
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button 
-                      size="lg"
-                      className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-8"
-                      onClick={() => window.open(project.videoDemo, '_blank')}
-                    >
-                      <Play size={20} className="mr-2" />
-                      Watch Demo
-                    </Button>
-                    
-                    <Button 
-                      variant="outline"
-                      size="lg"
-                      className="border-primary/30 hover:border-primary hover:bg-primary/10 px-8"
-                      onClick={() => window.open(project.githubLink, '_blank')}
-                    >
-                      <Github size={20} className="mr-2" />
-                      View Code
-                    </Button>
-                    
-                    <Button 
-                      variant="outline"
-                      size="lg"
-                      className="border-accent/30 hover:border-accent hover:bg-accent/10 px-8"
-                      onClick={() => window.open(project.demoLink, '_blank')}
-                    >
-                      <ExternalLink size={20} className="mr-2" />
-                      Live Demo
-                    </Button>
+
+                    {/* Video Demo */}
+                    {project.videoDemo && (
+                      <a href={project.videoDemo} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          size="lg"
+                          className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-8"
+                        >
+                          <Play size={20} className="mr-2" />
+                          Watch Demo
+                        </Button>
+                      </a>
+                    )}
+
+                    {/* GitHub */}
+                    {project.githubLink && (
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          variant="outline"
+                          size="lg"
+                          className="border-primary/30 hover:border-primary hover:bg-primary/10 px-8"
+                        >
+                          <Github size={20} className="mr-2" />
+                          View Code
+                        </Button>
+                      </a>
+                    )}
+
+                    {/* Live Demo */}
+                    {project.demoLink && (
+                      <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          variant="outline"
+                          size="lg"
+                          className="border-accent/30 hover:border-accent hover:bg-accent/10 px-8"
+                        >
+                          <ExternalLink size={20} className="mr-2" />
+                          Live Demo
+                        </Button>
+                      </a>
+                    )}
                   </div>
-                  
+
                   <div className="flex gap-2">
                     <ProjectDialog
                       project={project}
@@ -195,14 +208,19 @@ const Projects = () => {
             <p className="text-muted-foreground mb-6">
               Check out my GitHub profile for more projects and contributions.
             </p>
-            <Button 
-              variant="outline"
-              className="border-primary/30 hover:border-primary hover:bg-primary/10"
-              onClick={() => window.open('https://github.com/ashutosh2287', '_blank')}
+            <a
+              href="https://github.com/ashutosh2287"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Github size={20} className="mr-2" />
-              Follow on GitHub
-            </Button>
+              <Button
+                variant="outline"
+                className="border-primary/30 hover:border-primary hover:bg-primary/10"
+              >
+                <Github size={20} className="mr-2" />
+                Follow on GitHub
+              </Button>
+            </a>
           </div>
         </div>
       </div>
