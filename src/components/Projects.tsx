@@ -22,9 +22,9 @@ const Projects = () => {
         "Instant Message Delivery",
         "User-friendly Interface"
       ],
-      demoLink: "#",
+      demoLink: "https://youtube.com/shorts/iQcYcdj0FSY?si=T56WzqdMuttQWwSM",
       githubLink: "https://github.com/ashutosh2287",
-      videoDemo: "#"
+      videoDemo: "https://youtube.com/shorts/iQcYcdj0FSY?si=T56WzqdMuttQWwSM"
     }
   ]);
 

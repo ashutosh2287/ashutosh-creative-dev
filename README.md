@@ -16,34 +16,13 @@ To run this project locally:
 
 ```bash
 # Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://github.com/ashutosh2287/ashutosh-creative-dev.git
 
 # Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
+cd ashutosh-creative-dev
 
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev
-```
-
-Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
-
-## Features
-
-- Responsive design
-- Modern UI components
-- Smooth animations
-- Contact form
-- Project showcase
-- Skills display
-- Professional experience timeline
-
-## Deployment
-
-This project is configured for easy deployment to any static hosting platform like Vercel, Netlify, or GitHub Pages.
-
-## License
-
-MIT License - feel free to use this code for your own projects.
